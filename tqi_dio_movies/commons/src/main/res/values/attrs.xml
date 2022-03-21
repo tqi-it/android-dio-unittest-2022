@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TryAgain">
+        <attr name="android:text" />
+        <attr name="android:button" format="string" />
+    </declare-styleable>
+    <declare-styleable name="ScrollableMoviesView">
+        <attr name="title" format="string"/>
+        <attr name="tryAgainMessage" format="string"/>
+        <attr name="tryAgainButton" format="string"/>
+    </declare-styleable>
+    <declare-styleable name="AutoProgressView">
+        <attr name="progressVelocityMillis" format="integer"/>
+        <attr name="progressLoop" format="boolean"/>
+    </declare-styleable>
+</resources>

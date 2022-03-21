@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/moviesTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Movies.Text.Title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Populares" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/shimmer_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/moviesTitle"
+            tools:visibility="gone">
+
+            <include layout="@layout/item_scrollable_movies_shimmer" />
+
+            <include layout="@layout/item_scrollable_movies_shimmer" />
+
+            <include layout="@layout/item_scrollable_movies_shimmer" />
+
+            <include layout="@layout/item_scrollable_movies_shimmer" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <io.github.gustavobarbosab.commons.widget.error.TryAgain
+            android:id="@+id/try_again"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tinny_size"
+            android:background="@color/colorShimmer"
+            android:paddingTop="@dimen/large_size"
+            android:paddingBottom="@dimen/large_size"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/moviesTitle"
+            app:layout_constraintVertical_bias="0.0"
+            tools:button="Tap to reload"
+            tools:text="Please try again"
+            tools:visibility="visible" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/movies_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/moviesTitle"
+            tools:itemCount="20"
+            tools:listitem="@layout/item_scrollable_movies" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

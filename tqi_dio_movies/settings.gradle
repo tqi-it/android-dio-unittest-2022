@@ -1,0 +1,16 @@
+rootProject.name = 'Movies'
+include ':app',
+        ':core',
+        ':commons',
+        ':features',
+        ':features:showcase:showcase_presentation',
+        ':features:showcase:showcase_domain',
+        ':features:favorites:favorite_presentation',
+        ':features:favorites:favorites_domain',
+        ':features:favorites:favorites_data',
+        ':features:detail:detail_presentation',
+        ':features:detail:detail_domain',
+        ':libraries:unit_test_utilities',
+        ':libraries:suspend_result'
+include ':features:detail:detail_data'
+include ':features:showcase:showcase_data'

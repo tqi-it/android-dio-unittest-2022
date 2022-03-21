@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="GRADLE" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/buildSrc" />
+            <option value="$PROJECT_DIR$/commons" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/detail" />
+            <option value="$PROJECT_DIR$/features/detail/detail_data" />
+            <option value="$PROJECT_DIR$/features/detail/detail_domain" />
+            <option value="$PROJECT_DIR$/features/detail/detail_presentation" />
+            <option value="$PROJECT_DIR$/features/favorites" />
+            <option value="$PROJECT_DIR$/features/favorites/favorite_presentation" />
+            <option value="$PROJECT_DIR$/features/favorites/favorites_data" />
+            <option value="$PROJECT_DIR$/features/favorites/favorites_domain" />
+            <option value="$PROJECT_DIR$/features/showcase" />
+            <option value="$PROJECT_DIR$/features/showcase/showcase_data" />
+            <option value="$PROJECT_DIR$/features/showcase/showcase_domain" />
+            <option value="$PROJECT_DIR$/features/showcase/showcase_presentation" />
+            <option value="$PROJECT_DIR$/libraries" />
+            <option value="$PROJECT_DIR$/libraries/suspend_result" />
+            <option value="$PROJECT_DIR$/libraries/unit_test_utilities" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

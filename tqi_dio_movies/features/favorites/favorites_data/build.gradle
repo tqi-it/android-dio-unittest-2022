@@ -1,0 +1,12 @@
+plugins {
+    id 'moovie.feature-data'
+    id 'kotlin-kapt'
+}
+
+dependencies {
+    implementation project(modulesDependencies.favoritesDomain)
+    implementation project(modulesDependencies.suspendResult)
+    implementation coroutinesDependency
+    implementation daggerDependencies.dagger
+    kapt daggerDependencies.compiler
+}

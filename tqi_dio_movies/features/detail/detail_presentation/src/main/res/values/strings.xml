@@ -1,0 +1,7 @@
+<resources>
+    <string name="detail_toolbar_title">Detalhes</string>
+    <string name="detail_start_screen_failure">Não conseguimos buscar seu histórico de filmes favoritos :(</string>
+    <string name="detail_load_favorites_failure">Ops… tivemos um problema =(</string>
+    <string name="detail_movie_unliked">Filme removido dos favoritos</string>
+    <string name="detail_movie_added">Filme adicionado aos favoritos</string>
+</resources>

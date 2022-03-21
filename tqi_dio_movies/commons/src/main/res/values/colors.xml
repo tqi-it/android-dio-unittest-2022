@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#263238</color>
+    <color name="colorPrimaryLight">#4f5b62</color>
+    <color name="colorPrimaryDark">#000a12</color>
+    <color name="colorSecondary">#02111E</color>
+    <color name="colorAccent">#F2BC28</color>
+    <color name="colorShimmer">#80263238</color>
+
+    <color name="colorSuccess">#8BC34A</color>
+    <color name="colorWarning">#FF9800</color>
+    <color name="colorError">#F44336</color>
+
+    <color name="image_shadow">#32000000</color>
+</resources>

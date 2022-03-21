@@ -1,0 +1,51 @@
+plugins {
+    id 'com.android.dynamic-feature'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion movieConfigVersions.compileSdk
+
+    defaultConfig {
+        minSdkVersion movieConfigVersions.minSdk
+        targetSdkVersion movieConfigVersions.targetSdk
+    }
+
+    buildFeatures.dataBinding = true
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+    implementation project(modulesDependencies.app)
+    implementation project(modulesDependencies.core)
+    implementation project(modulesDependencies.common)
+
+    implementation androidxDependencies.appCompat
+    implementation androidxDependencies.coreKtx
+    implementation androidxDependencies.constraintLayout
+
+    implementation navigationDependencies.fragment
+    implementation navigationDependencies.ui
+    implementation navigationDependencies.uiKtx
+    implementation navigationDependencies.fragmentKtx
+    implementation navigationDependencies.dynamicFeature
+
+    testImplementation unitTestDependencies.values()
+    testImplementation project(modulesDependencies.unitTestUtilities)
+
+    implementation daggerDependencies.dagger
+    kapt daggerDependencies.compiler
+}

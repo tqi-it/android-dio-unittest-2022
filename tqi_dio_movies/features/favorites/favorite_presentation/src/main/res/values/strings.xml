@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="favorite_movie_saved_date">Salvo em: %1s</string>
+    <string name="favorites_toolbar_title">Favoritos</string>
+    <string name="favorites_empty_state_message">Não encontramos filmes favoritos</string>
+    <string name="favorites_error_message">Ops, tivemos um erro ao buscar os filmes.</string>
+    <string name="favorites_error_button">Tentar novamente</string>
+    <string name="favorites_movies_unlike_success">Filme removido =D</string>
+    <string name="favorites_movies_unlike_error">Falha ao remover filme dos favoritos</string>
+</resources>

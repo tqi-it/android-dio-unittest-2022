@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/fragment_movie_list_scene">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_banner_top"
+            android:name="io.github.gustavobarbosab.movies.showcase.presentation.banner.BannerMoviesFragment"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/show_case_banner_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollable_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_banner_top">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <io.github.gustavobarbosab.commons.widget.scrollablemovie.ScrollableMoviesView
+                    android:id="@+id/latest_movies"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/small_size"
+                    android:layout_marginTop="@dimen/large_size"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:title="@string/show_case_latest_title"
+                    app:tryAgainButton="@string/show_case_try_again_button"
+                    app:tryAgainMessage="@string/show_case_latest_try_again_message" />
+
+                <io.github.gustavobarbosab.commons.widget.scrollablemovie.ScrollableMoviesView
+                    android:id="@+id/top_rated"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/small_size"
+                    android:layout_marginTop="@dimen/large_size"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/latest_movies"
+                    app:title="@string/show_case_top_rated_title"
+                    app:tryAgainButton="@string/show_case_try_again_button"
+                    app:tryAgainMessage="@string/show_case_top_rated_try_again_message" />
+
+                <io.github.gustavobarbosab.commons.widget.scrollablemovie.ScrollableMoviesView
+                    android:id="@+id/popularMovies"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/small_size"
+                    android:layout_marginTop="@dimen/large_size"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/top_rated"
+                    app:title="@string/show_case_popular_title"
+                    app:tryAgainButton="@string/show_case_try_again_button"
+                    app:tryAgainMessage="@string/show_case_popular_try_again_message" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/small_size"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/Movies.Text.Tinny"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/popularMovies"
+                    app:layout_constraintVertical_bias="1.0"
+                    tools:text="Develop by gustavo barbosa" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+</layout>

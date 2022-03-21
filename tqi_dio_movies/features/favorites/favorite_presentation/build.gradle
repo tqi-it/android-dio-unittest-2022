@@ -1,0 +1,9 @@
+plugins {
+    id 'moovie.feature-presentation'
+}
+
+dependencies {
+    implementation project(modulesDependencies.suspendResult)
+    implementation project(modulesDependencies.favoritesDomain)
+    implementation coroutinesDependency
+}

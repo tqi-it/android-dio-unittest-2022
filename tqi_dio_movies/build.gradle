@@ -1,0 +1,128 @@
+apply from: './local_properties.gradle'
+apply from: './generate_new_version.gradle'
+
+buildscript {
+    ext {
+        // App Configs
+        movieConfigVersions = [
+                minSdk             : 21,
+                targetSdk          : 31,
+                compileSdk         : 31,
+                buildTools         : "30.0.2",
+                testInstrumentation: "androidx.test.runner.AndroidJUnitRunner"
+        ]
+
+        // Dependencies
+        kotlin_version = '1.5.31'
+        nav_version = "2.3.5"
+
+        navigationDependencies = [
+                fragment      : "androidx.navigation:navigation-fragment:$nav_version",
+                ui            : "androidx.navigation:navigation-ui:$nav_version",
+                fragmentKtx   : "androidx.navigation:navigation-fragment-ktx:$nav_version",
+                uiKtx         : "androidx.navigation:navigation-ui-ktx:$nav_version",
+                dynamicFeature: "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
+        ]
+
+        kotlinDependencies = [
+                jdk7: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+        ]
+
+        androidxDependencies = [
+                appCompat       : "androidx.appcompat:appcompat:1.3.1",
+                coreKtx         : "androidx.core:core-ktx:1.7.0",
+                constraintLayout: "androidx.constraintlayout:constraintlayout:2.1.1",
+                recyclerView    : "androidx.recyclerview:recyclerview:1.2.1",
+                viewPager2      : "androidx.viewpager2:viewpager2:1.0.0",
+                swipeRefresh    : "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+        ]
+
+        unitTestDependencies = [
+                junit          : "junit:junit:4.12",
+                mockkCoroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.0",
+                mockk          : "io.mockk:mockk:1.12.0",
+                coroutinesTest : "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.2",
+                archCore       : "androidx.arch.core:core-testing:2.1.0"
+        ]
+
+        modulesDependencies = [
+                app              : ":app",
+                core             : ":core",
+                common           : ":commons",
+                unitTestUtilities: ":libraries:unit_test_utilities",
+                suspendResult    : ":libraries:suspend_result",
+                showCaseDomain   : ":features:showcase:showcase_domain",
+                showCaseData     : ":features:showcase:showcase_data",
+                detailsDomain    : ":features:detail:detail_domain",
+                detailsData      : ":features:detail:detail_data",
+                favoritesData    : ":features:favorites:favorites_data",
+                favoritesDomain  : ":features:favorites:favorites_domain",
+        ]
+
+        def daggerVersion = "2.40.1"
+        daggerDependencies = [
+                dagger   : "com.google.dagger:dagger:$daggerVersion",
+                compiler : "com.google.dagger:dagger-compiler:$daggerVersion",
+                processor: "com.google.dagger:dagger-android-processor:$daggerVersion",
+        ]
+
+        def retrofitVersion = "2.9.0"
+        networkDependencies = [
+                retrofit: "com.squareup.retrofit2:retrofit:$retrofitVersion",
+                moshi   : "com.squareup.retrofit2:converter-moshi:$retrofitVersion",
+                logging : "com.squareup.okhttp3:logging-interceptor:4.9.0"
+        ]
+
+        coroutinesDependency = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1"
+
+        def lifecycleScopesVersion = "2.2.0"
+        lifecycleScopesDependencies = [
+                viewModel: "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleScopesVersion",
+                liveData : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleScopesVersion"
+        ]
+        def glideVersion = "4.12.0"
+        glideDependencies = [
+                glide    : "com.github.bumptech.glide:glide:$glideVersion",
+                processor: "com.github.bumptech.glide:compiler:$glideVersion"
+        ]
+
+        playCoreDependencies = [
+                core: "com.google.android.play:core:1.10.0",
+                ktx : "com.google.android.play:core-ktx:1.8.1"
+        ]
+
+        def roomVersion = "2.3.0"
+        roomDependencies = [
+                runtime : "androidx.room:room-runtime:$roomVersion",
+                ktx     : "androidx.room:room-ktx:$roomVersion",
+                compiler: "androidx.room:room-compiler:$roomVersion",
+        ]
+
+        def pagingVersion = "3.0.1"
+        pagingDependency = "androidx.paging:paging-runtime:$pagingVersion"
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.3'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+        classpath 'com.google.gms:google-services:4.3.10'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.8.0'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

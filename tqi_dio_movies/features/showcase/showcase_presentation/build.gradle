@@ -1,0 +1,12 @@
+plugins {
+    id 'moovie.feature-presentation'
+}
+
+dependencies {
+    implementation project(modulesDependencies.suspendResult)
+    implementation project(modulesDependencies.showCaseDomain)
+    implementation project(modulesDependencies.detailsDomain)
+    implementation androidxDependencies.viewPager2
+    implementation networkDependencies.values()
+    implementation coroutinesDependency
+}

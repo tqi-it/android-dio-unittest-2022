@@ -1,0 +1,108 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+
+def keystoreFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreFile.withInputStream { keystoreProperties.load(it) }
+
+def versionFile = file('version.properties')
+def versionProperties = new Properties()
+versionFile.withInputStream { versionProperties.load(it) }
+
+
+android {
+    compileSdkVersion movieConfigVersions.compileSdk
+    buildToolsVersion movieConfigVersions.buildTools
+
+    defaultConfig {
+        applicationId "io.github.gustavobarbosab.movies"
+        minSdkVersion movieConfigVersions.minSdk
+        targetSdkVersion movieConfigVersions.targetSdk
+        versionCode versionProperties['VERSION_CODE'].toInteger()
+        versionName versionProperties.VERSION_NAME
+
+        testInstrumentationRunner movieConfigVersions.testInstrumentation
+    }
+
+    signingConfigs {
+        release {
+            storeFile rootProject.file(keystoreProperties.storeFile)
+            storePassword keystoreProperties.password
+            keyAlias keystoreProperties.keyAlias
+            keyPassword keystoreProperties.password
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+
+    buildFeatures.dataBinding = true
+
+    dynamicFeatures = [
+            ':features:showcase:showcase_presentation',
+            ':features:favorites:favorite_presentation',
+            ':features:detail:detail_presentation'
+    ]
+
+    lintOptions {
+        checkDependencies true
+        disable 'MissingTranslation'
+    }
+
+    packagingOptions {
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(modulesDependencies.core)
+    implementation project(modulesDependencies.common)
+
+    // Modules
+    implementation project(modulesDependencies.showCaseData)
+    implementation project(modulesDependencies.showCaseDomain)
+
+    implementation project(modulesDependencies.favoritesData)
+    implementation project(modulesDependencies.favoritesDomain)
+
+    implementation project(modulesDependencies.detailsData)
+    implementation project(modulesDependencies.detailsDomain)
+
+    implementation kotlinDependencies.values()
+    implementation androidxDependencies.values()
+    implementation navigationDependencies.values()
+    testImplementation unitTestDependencies.values()
+
+    implementation daggerDependencies.dagger
+    kapt daggerDependencies.compiler
+
+    implementation networkDependencies.values()
+
+    implementation playCoreDependencies.values()
+
+    implementation platform('com.google.firebase:firebase-bom:28.1.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-crashlytics'
+}

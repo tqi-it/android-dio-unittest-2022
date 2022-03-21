@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/scrollable_movies"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/banner_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="banner_top,auto_progress" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/banner_top"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/colorShimmer"
+            app:layout_constraintBottom_toTopOf="@id/auto_progress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <io.github.gustavobarbosab.commons.widget.autoprogress.AutoProgressView
+            android:id="@+id/auto_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:indeterminate="false"
+            app:progressVelocityMillis="5000"
+            app:progressLoop="true"
+            android:indeterminateTint="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <io.github.gustavobarbosab.commons.widget.error.TryAgain
+            android:id="@+id/banner_try_again"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:button="@string/show_case_try_again_button"
+            android:visibility="gone"
+            android:text="@string/show_case_generic_error"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

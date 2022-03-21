@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="io.github.gustavobarbosab.movies.detail.presentation.MovieDetailFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/large_size" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/large_size" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/movie_poster"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorShimmer"
+                android:minHeight="228dp"
+                android:scaleType="fitXY"
+                android:tint="@color/image_shadow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/movie_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/small_size"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textAppearance="@style/Movies.Text.Title"
+                app:layout_constraintBottom_toBottomOf="@id/movie_poster"
+                app:layout_constraintEnd_toStartOf="@+id/movie_fab"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                tools:text="Nome do meu filme aqui" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/movie_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="center"
+                android:src="@drawable/ic_heart_outline"
+                app:fabSize="normal"
+                app:layout_constraintBottom_toBottomOf="@id/movie_poster"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                app:layout_constraintTop_toBottomOf="@id/movie_poster" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/movie_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_size"
+                android:textAppearance="@style/Movies.Text.Tinny"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/movie_fab"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

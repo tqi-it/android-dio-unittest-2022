@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/snack_background"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:background="#CDDC39"
+    android:padding="@dimen/very_large_size">
+
+    <ImageView
+        android:id="@+id/snack_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_success" />
+
+    <TextView
+        android:id="@+id/snack_message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_size"
+        android:textAppearance="@style/Movies.Text.SubTitle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/snack_confirmation"
+        app:layout_constraintStart_toEndOf="@+id/snack_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Sua mensagem vem aqui" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/snack_confirmation"
+        android:layout_width="wrap_content"
+        android:padding="@dimen/small_size"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:text="@string/confirmation"
+        android:textAppearance="@style/Movies.Text.Title"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/snack_message"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

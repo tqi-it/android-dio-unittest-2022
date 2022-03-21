@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_graph"
+    app:progressDestination="@+id/fragment_progress"
+    app:startDestination="@+id/fragment_show_case">
+
+    <fragment
+        android:id="@+id/fragment_show_case"
+        android:name="io.github.gustavobarbosab.movies.showcase.presentation.ShowCaseFragment">
+        <action
+            android:id="@+id/action_detail_fragment"
+            app:destination="@id/detail_fragment"
+            app:popUpTo="@id/fragment_show_case" />
+        <argument
+            android:name="SHOW_NAVBAR"
+            android:defaultValue="true" />
+        <argument
+            android:name="TOOLBAR_LOGO"
+            android:defaultValue="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_favorite_movies"
+        android:name="io.github.gustavobarbosab.movies.favorite.presentation.FavoriteMoviesFragment">
+        <action
+            android:id="@+id/action_detail_fragment"
+            app:destination="@id/detail_fragment"
+            app:popUpTo="@id/fragment_favorite_movies" />
+        <argument
+            android:name="SHOW_NAVBAR"
+            android:defaultValue="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detail_fragment"
+        android:name="io.github.gustavobarbosab.movies.detail.presentation.MovieDetailFragment"
+        app:moduleName="detail_presentation">
+        <argument
+            android:name="detailModel"
+            app:argType="io.github.gustavobarbosab.movies.navigation.arguments.detail.MovieDetailArgument" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_progress"
+        android:name="io.github.gustavobarbosab.movies.featuredownload.FeatureLoadingFragment"
+        android:label="ProgressFragment">
+    </fragment>
+</navigation>

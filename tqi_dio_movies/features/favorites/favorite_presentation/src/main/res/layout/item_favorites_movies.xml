@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/tinny_size"
+        android:background="@color/colorSecondary">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/movie_image"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="130dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/movie_name"
+            app:layout_constraintHorizontal_weight="0.3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/movie_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_size"
+            android:textAppearance="@style/Movies.Text.Title"
+            app:layout_constraintEnd_toStartOf="@+id/movie_like"
+            app:layout_constraintHorizontal_weight="0.8"
+            app:layout_constraintStart_toEndOf="@+id/movie_image"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Incêndio na caixa d'água" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/movie_saved_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_size"
+            android:textAppearance="@style/Movies.Text.Tinny"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/movie_like"
+            app:layout_constraintStart_toEndOf="@+id/movie_image"
+            app:layout_constraintTop_toBottomOf="@+id/movie_name"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="@string/favorite_movie_saved_date" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/movie_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_size"
+            android:paddingStart="@dimen/small_size"
+            android:paddingTop="@dimen/very_large_size"
+            android:paddingEnd="@dimen/small_size"
+            android:paddingBottom="@dimen/very_large_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_delete" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

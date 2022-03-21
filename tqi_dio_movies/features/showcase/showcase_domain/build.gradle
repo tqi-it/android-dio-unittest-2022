@@ -1,0 +1,11 @@
+plugins {
+    id 'moovie.feature-domain'
+}
+
+dependencies {
+    implementation project(modulesDependencies.suspendResult)
+    testImplementation project(modulesDependencies.unitTestUtilities)
+    testImplementation unitTestDependencies.mockkCoroutines
+    testImplementation unitTestDependencies.mockk
+    testImplementation unitTestDependencies.coroutinesTest
+}

@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion movieConfigVersions.compileSdk
+    buildToolsVersion movieConfigVersions.buildTools
+
+    defaultConfig {
+        minSdkVersion movieConfigVersions.minSdk
+        targetSdkVersion movieConfigVersions.targetSdk
+
+        testInstrumentationRunner movieConfigVersions.testInstrumentation
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildFeatures.dataBinding = true
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation androidxDependencies.appCompat
+    implementation androidxDependencies.coreKtx
+    implementation androidxDependencies.constraintLayout
+    implementation androidxDependencies.recyclerView
+    implementation androidxDependencies.viewPager2
+    implementation 'com.google.android.material:material:1.4.0'
+
+    implementation coroutinesDependency
+
+    implementation glideDependencies.glide
+    implementation androidxDependencies.swipeRefresh
+    kapt glideDependencies.processor
+
+    implementation navigationDependencies.dynamicFeature
+
+    testImplementation unitTestDependencies.values()
+}

@@ -1,0 +1,11 @@
+<resources>
+
+    <style name="Movies.AppTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorSecondary">@color/colorAccent</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:windowBackground">@color/colorPrimaryDark</item>
+        <item name="android:textAppearance">@style/Movies.Text.Body</item>
+    </style>
+</resources>

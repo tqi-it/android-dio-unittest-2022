@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Moovie</string>
+    <string name="title_home">Inicio</string>
+    <string name="title_movies_list">Lista de filmes</string>
+    <string name="title_favorite_movies">Favoritos</string>
+    <string name="title_detail">Module Title</string>
+    <string name="feature_loading_download_started">Download iniciado&#8230;</string>
+    <string name="feature_loading_download_canceled">Download cancelado :(</string>
+    <string name="feature_loading_download_failed">Ops&#8230; O download falhou =X</string>
+    <string name="feature_loading_toolbar_title">Download</string>
+</resources>
