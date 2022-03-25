@@ -53,10 +53,7 @@ class ShowCaseFragment : BaseFragment<FragmentShowCaseBinding>(), ShowCaseInject
     }
 
     override fun initializeViews(savedInstance: Bundle?) {
-        observeViewModel()
-        setupToolbar()
-        setupMovieList()
-        setupVersion()
+        startDetails()
     }
 
     private fun setupMovieList() = with(binding) {
@@ -94,7 +91,7 @@ class ShowCaseFragment : BaseFragment<FragmentShowCaseBinding>(), ShowCaseInject
                 ShowTopRatedLoading -> binding.topRated.showShimmer()
                 ErrorLoadTopRated -> binding.topRated.showTryAgain()
                 RedirectToSearch -> context?.toast("Pesquisar")
-                is ShowMovieDetails -> startDetails(it.movie)
+                is ShowMovieDetails -> startDetails()
                 else -> {
                 }
             }
@@ -120,8 +117,8 @@ class ShowCaseFragment : BaseFragment<FragmentShowCaseBinding>(), ShowCaseInject
         viewModel.showDetails(movie)
     }
 
-    private fun startDetails(detail: MovieDetailDomain) {
-        val navDirection = ShowCaseDetailDirection(detail).createDirection()
+    private fun startDetails() {
+        val navDirection = ShowCaseDetailDirection().createDirection()
         navigation.navigate(
             origin = this,
             destination = navDirection

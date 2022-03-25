@@ -3,13 +3,13 @@ package io.github.gustavobarbosab.movies.detail.presentation
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
+import io.github.gustavobarbosab.commons.databinding.FragmentMovieDetailBinding
 import io.github.gustavobarbosab.commons.ui.base.BaseFragment
 import io.github.gustavobarbosab.commons.ui.extension.loadImage
 import io.github.gustavobarbosab.commons.widget.snackbar.SnackBarType
 import io.github.gustavobarbosab.commons.widget.snackbar.showSnackBar
 import io.github.gustavobarbosab.commons.widget.toolbar.buttons.BackButtonType
 import io.github.gustavobarbosab.movies.detail.R
-import io.github.gustavobarbosab.movies.detail.databinding.FragmentMovieDetailBinding
 import io.github.gustavobarbosab.movies.detail.di.DaggerDetailComponent
 import io.github.gustavobarbosab.movies.detail.model.DetailsButtonType
 import io.github.gustavobarbosab.movies.detail.presentation.DetailMovieState.ViewAction
@@ -19,7 +19,7 @@ import javax.inject.Inject
 
 class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>() {
 
-    override val layoutId: Int = R.layout.fragment_movie_detail
+    override val layoutId: Int = io.github.gustavobarbosab.commons.R.layout.fragment_movie_detail
 
     private val args: MovieDetailFragmentArgs by navArgs()
 

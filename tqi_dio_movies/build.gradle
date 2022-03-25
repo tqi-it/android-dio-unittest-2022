@@ -9,12 +9,15 @@ buildscript {
                 targetSdk          : 31,
                 compileSdk         : 31,
                 buildTools         : "30.0.2",
-                testInstrumentation: "androidx.test.runner.AndroidJUnitRunner"
         ]
 
         // Dependencies
         kotlin_version = '1.5.31'
         nav_version = "2.3.5"
+
+        androidxJunit = '1.1.1'
+        androidxLegacy = '1.0.0'
+        androidxEspresso = '3.3.0'
 
         navigationDependencies = [
                 fragment      : "androidx.navigation:navigation-fragment:$nav_version",

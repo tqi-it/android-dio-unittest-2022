@@ -26,7 +26,7 @@ android {
         versionCode versionProperties['VERSION_CODE'].toInteger()
         versionName versionProperties.VERSION_NAME
 
-        testInstrumentationRunner movieConfigVersions.testInstrumentation
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
@@ -72,6 +72,10 @@ android {
         exclude 'META-INF/NOTICE'
         exclude 'META-INF/LICENSE'
     }
+
+    packagingOptions {
+        resources.excludes.add("META-INF/*")
+    }
 }
 
 dependencies {
@@ -93,6 +97,7 @@ dependencies {
     implementation kotlinDependencies.values()
     implementation androidxDependencies.values()
     implementation navigationDependencies.values()
+    implementation 'androidx.test.espresso:espresso-contrib:3.4.0'
     testImplementation unitTestDependencies.values()
 
     implementation daggerDependencies.dagger
@@ -105,4 +110,12 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:28.1.0')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-crashlytics'
+
+    // Instrumentation tests
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test:rules:1.1.0'
+
+    androidTestImplementation "androidx.test.ext:junit:1.1.3"
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.0.4"
 }
